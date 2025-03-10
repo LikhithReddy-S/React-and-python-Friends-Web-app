@@ -3,7 +3,7 @@ import { IoMoon } from "react-icons/io5";
 import { LuSun } from "react-icons/lu";
 import CreateUsetModel from './CreateUsetModel';
 
-function Navbar() {
+function Navbar({setUsers}) {
   const { colorMode, toggleColorMode } = useColorMode()
 
   return (
@@ -24,7 +24,7 @@ function Navbar() {
             <Button onClick={toggleColorMode}>
               {colorMode === 'light' ? <IoMoon/> : <LuSun size={20}/>}
             </Button>
-            <CreateUsetModel />
+            <CreateUsetModel setUsers = {setUsers}/>
           </Flex>
         </Flex>
       </Box>

@@ -70,7 +70,7 @@ def update_friend(id):
     data = request.json
     friend.name = data.get("name",friend.name)
     friend.role = data.get("role",friend.role)
-    friend.description = data.get("decription",friend.description)
+    friend.description = data.get("description",friend.description)
     friend.gender = data.get("gender",friend.gender)
     db.session.commit()
     return jsonify(friend.to_string()), 201

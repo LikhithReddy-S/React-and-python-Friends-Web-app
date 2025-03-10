@@ -1,18 +1,69 @@
-import { Card, Box, Grid, SimpleGrid ,CardHeader,Flex,Avatar,Heading,Text,IconButton,CardBody,CardFooter,Button} from "@chakra-ui/react";
-import { USERS } from "../dummy/dummy";
+import {
+  Card,
+  Box,
+  Grid,
+  CircularProgress,
+  SimpleGrid,
+  CardHeader,
+  Flex,
+  Avatar,
+  Heading,
+  Text,
+  IconButton,
+  CardBody,
+  CardFooter,
+  Button,
+} from "@chakra-ui/react";
 import UserCard from "./UserCard";
+import { useEffect, useState } from "react";
 
-function UserGrid() {
+function UserGrid({ users, setUsers }) {
+  const [isLoading, setLoading] = useState(true);
+  useEffect(() => {
+    const getUsers = async () => {
+      try {
+        const res = await fetch("http://127.0.0.1:5000/api/friends");
+        const data = await res.json();
+        if (!res.ok) {
+          throw new error(data.error);
+        }
+        setUsers(data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getUsers();
+  }, [setUsers]);
   return (
-    <SimpleGrid
-      columns={{ sm: 1, md: 2, lg: 3 }}
-      padding={"10px"}
-      spacing={"10px"}
-    >
-      {USERS.map(user=>
-        <UserCard user = {user} />
+    <>
+      {isLoading && (
+        <Flex justifyContent={"center"}>
+          <CircularProgress isIndeterminate color="green.300" />
+        </Flex>
       )}
-    </SimpleGrid>
+      <SimpleGrid
+        columns={{ sm: 1, md: 2, lg: 3 }}
+        padding={"10px"}
+        spacing={"10px"}
+      >
+        {users.map((user) => (
+          <UserCard key={user.id} user={user} setUsers={setUsers}/>
+        ))}
+        
+      </SimpleGrid>
+      {!isLoading && users.length === 0 && (
+          <Flex justifyContent={"center"}>
+            <Text fontSize={"xl"}>
+              <Text as={"span"} fontSize={"2xl"} fontWeight={"bold"} mr={2}>
+                Poor you! 🥺
+              </Text>
+              Make some friends bro.
+            </Text>
+          </Flex>
+        )}
+    </>
   );
 }
 
