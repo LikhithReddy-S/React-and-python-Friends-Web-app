@@ -14,7 +14,7 @@ frontend_folder = os.path.join(os.getcwd(),"..","frontend")
 dist_folder= os.path.join(frontend_folder,"dist")
 
 @app.route("/",defaults={"filename":""})
-@app.route("<path:filename>")
+@app.route("/<path:filename>")
 def index(filename):
     if not filename:
         filename = "index.html"
