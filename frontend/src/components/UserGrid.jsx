@@ -22,8 +22,9 @@ function UserGrid({ users, setUsers }) {
   useEffect(() => {
     const getUsers = async () => {
       try {
-        const res = await fetch("http://127.0.0.1:5000/api/friends");
+        const res = await fetch("https://python-react-freinds-app-backend.onrender.com/api/friends");
         const data = await res.json();
+        console.log(data);
         if (!res.ok) {
           throw new error(data.error);
         }

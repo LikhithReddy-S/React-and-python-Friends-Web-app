@@ -33,7 +33,7 @@ function CreateUsetModel({ setUsers }) {
   const handleCreateUser = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(BASE_URL + "/friends", {
+      const res = await fetch(BASE_URL + "/api/friends", {
         method: "POST",
         headers: {
           "content-type": "application/json",

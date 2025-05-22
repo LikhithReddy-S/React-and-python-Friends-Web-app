@@ -8,7 +8,7 @@ function UserCard({user,setUsers}) {
   const handleDeleteUser = async (e)=>{
     e.preventDefault()
     try {
-      const res = await fetch(BASE_URL+"/friends/"+ user.id,{
+      const res = await fetch(BASE_URL+"/api/friends/"+ user.id,{
         method:"DELETE",
       })
       const data = await res.json()

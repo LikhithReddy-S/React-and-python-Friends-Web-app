@@ -31,7 +31,7 @@ function EditModal({ user, setUsers }) {
   const handleUpdateUser = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(BASE_URL + "/friends/" + user.id, {
+      const res = await fetch(BASE_URL + "/api/friends/" + user.id, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
