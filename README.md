@@ -1,4 +1,5 @@
-# Friends Web App
+# [Friends Web App](https://react-and-python-friends-web-app.vercel.app/)
+
 
 This is a web application built using **React** for the frontend and **Python (FastAPI or Flask)** for the backend. The application allows users to manage and interact with their friends list.
 
@@ -12,34 +13,41 @@ This is a web application built using **React** for the frontend and **Python (F
 ### Frontend:
 - React.js
 - CSS / TailwindCSS (for styling)
-- Axios (for API requests)
 
 ### Backend:
 - Python (FastAPI or Flask)
 - SQLite / PostgreSQL (Database)
-- JWT Authentication (Optional)
+- JWT Authentication(need to add)
 
 ## Installation & Setup
 ### Prerequisites
 Make sure you have the following installed:
 - **Node.js** and **npm** (for React frontend)
 - **Python 3.x** (for backend)
-
-### Backend Setup
 1. Clone the repository:
    ```sh
    git clone https://github.com/LikhithReddy-S/React-and-python-Friends-Web-app.git
    cd React-and-python-Friends-Web-app/backend
    ```
+
+### Backend Setup
+
 2. Create a virtual environment and activate it:
    ```sh
    python -m venv venv
-   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   #on mac, `source venv/bin/activate`  # On Windows, use `venv\Scripts\activate`
    ```
 3. Install dependencies:
    ```sh
    pip install -r requirements.txt
    ```
+4.Instll Flask
+   ```sh
+   set FLASK_APP=app.py
+   set FLASK_ENV=development
+   flask run
+   ```
+
 4. Run the backend server:
    ```sh
    uvicorn main:app --reload  # If using FastAPI
@@ -63,7 +71,7 @@ Make sure you have the following installed:
 ## Usage
 - Open the application in your browser at `http://localhost:3000/`.
 - Use the UI to manage friends.
-- The backend runs at `http://localhost:8000/` (FastAPI) or `http://localhost:5000/` (Flask).
+- `http://localhost:5000/` (Flask).
 
 ## Contributing
 Feel free to fork the repository and submit pull requests to improve the project.
